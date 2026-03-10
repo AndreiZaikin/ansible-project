@@ -1,0 +1,97 @@
+- hosts: appservers
+  become: yes
+  
+  tasks:
+    # Обновление кеша пакетного менеджера
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600
+      tags:
+        - always
+        - packages
+        - packages-install
+
+    # Установка пакетов
+    - name: Install packages
+      ansible.builtin.apt:
+        name:
+          - git
+          - make
+          - nodejs
+        state: present
+      tags:
+        - packages
+        - packages-install
+
+    # Удаление пакетов
+    - name: Remove packages
+      ansible.builtin.apt:
+        name:
+          - git
+          - make
+          - nodejs
+        state: absent
+      tags:
+        - packages
+        - packages-remove
+
+    # Создание пользователя arya
+    - name: Create user arya
+      ansible.builtin.user:
+        name: arya
+        state: present
+        shell: /bin/bash
+      tags:
+        - users
+        - users-create
+
+    # Создание пользователя sansa
+    - name: Create user sansa
+      ansible.builtin.user:
+        name: sansa
+        state: present
+        shell: /bin/bash
+      tags:
+        - users
+        - users-create
+
+    # Создание пользователя tirion
+    - name: Create user tirion
+      ansible.builtin.user:
+        name: tirion
+        state: present
+        shell: /bin/bash
+      tags:
+        - users
+        - users-create
+
+    # Удаление пользователя arya
+    - name: Remove user arya
+      ansible.builtin.user:
+        name: arya
+        state: absent
+        remove: yes
+      tags:
+        - users
+        - users-remove
+
+    # Удаление пользователя sansa
+    - name: Remove user sansa
+      ansible.builtin.user:
+        name: sansa
+        state: absent
+        remove: yes
+      tags:
+        - users
+        - users-remove
+
+    # Удаление пользователя tirion
+    - name: Remove user tirion
+      ansible.builtin.user:
+        name: tirion
+        state: absent
+        remove: yes
+      tags:
+        - users
+        - users-remove
