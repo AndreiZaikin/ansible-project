@@ -1,6 +1,6 @@
 # Ansible project
 
-Inventory file for managing remote server.
+Ansible configuration for managing remote servers.
 
 ## Usage
 
