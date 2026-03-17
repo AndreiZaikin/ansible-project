@@ -17,28 +17,31 @@ setup-check:
 	ansible-playbook playbook.yml -i inventory.ini --check
 
 setup-packages:
-	ansible-playbook playbook.yml -i inventory.ini --tags "packages-install"
+	ansible-playbook playbook.yml -i inventory.ini -t "packages-install"
 
 setup-packages-check:
-	ansible-playbook playbook.yml -i inventory.ini --tags "packages-install" --check
+	ansible-playbook playbook.yml -i inventory.ini -t "packages-install" --check
 
 remove-packages:
-	ansible-playbook playbook.yml -i inventory.ini --tags "packages-remove"
+	ansible-playbook playbook.yml -i inventory.ini -t "packages-remove"
 
 remove-packages-check:
-	ansible-playbook playbook.yml -i inventory.ini --tags "packages-remove" --check
+	ansible-playbook playbook.yml -i inventory.ini -t "packages-remove" --check
 
 setup-users:
-	ansible-playbook playbook.yml -i inventory.ini --tags "users-create"
+	ansible-playbook playbook.yml -i inventory.ini -t "users-create"
 
 setup-users-check:
-	ansible-playbook playbook.yml -i inventory.ini --tags "users-create" --check
+	ansible-playbook playbook.yml -i inventory.ini -t "users-create" --check
 
 remove-users:
-	ansible-playbook playbook.yml -i inventory.ini --tags "users-remove"
+	ansible-playbook playbook.yml -i inventory.ini -t "users-remove"
 
 remove-users-check:
-	ansible-playbook playbook.yml -i inventory.ini --tags "users-remove" --check
+	ansible-playbook playbook.yml -i inventory.ini -t "users-remove" --check
 
 user-check-tirion:
 	ansible appservers -i inventory.ini -m command -a "id tirion"
+
+nginx-setup:
+	ansible-playbook nginx.yml -i inventory.ini

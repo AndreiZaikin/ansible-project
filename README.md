@@ -29,6 +29,9 @@ Ansible configuration for managing remote servers.
 - `make remove-users-check` - dry run for user removal
 - `make user-check-tirion` - check if user tirion exists
 
+### Nginx setup
+- `make nginx-setup` - install and configure Nginx with Hello World page
+
 ## Files
 
 - `inventory.ini` - server IP address and groups
