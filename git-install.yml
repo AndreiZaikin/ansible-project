@@ -1,4 +1,5 @@
 - hosts: webservers
+  gather_facts: "{{ do_gather_facts | default(true) }}"
 
   tasks:
     - name: install git server
