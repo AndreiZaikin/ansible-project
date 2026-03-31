@@ -12,7 +12,7 @@
         update_cache: yes
 
     - name: Copy index.html
-      ansible.builtin.copy:
+      ansible.builtin.template:
         src: files/index.html
         dest: "{{root_dir}}/index.html"
         mode: '0644'
