@@ -11,6 +11,8 @@ Ansible configuration for managing remote servers.
 - `make git-install` - install git on webservers
 - `make git-remove` - remove git from webservers
 - `make git-check` - check git version on webservers
+- `make git-install-no-facts` - install git without gathering system facts
+- `make git-install-benchmark` - benchmark git installation with/without facts gathering
 
 ### Full setup
 - `make setup` - run complete playbook (packages + users)
@@ -29,6 +31,9 @@ Ansible configuration for managing remote servers.
 - `make remove-users-check` - dry run for user removal
 - `make user-check-tirion` - check if user tirion exists
 
+### Benchmark
+- `make git-install-benchmark` - compare installation speed with and without facts gathering (displays results table)
+
 ### Nginx setup
 - `make nginx-setup` - install and configure Nginx with Hello World page
 
@@ -38,4 +43,6 @@ Ansible configuration for managing remote servers.
 - `playbook.yml` - main playbook for server setup
 - `git-install.yml` - playbook for git installation
 - `git-remove.yml` - playbook for git removal
+- `nginx.yml` - playbook for Nginx installation and configuration
+- `nginx.conf` - Nginx configuration template
 - `Makefile` - convenience commands with dry-run options
